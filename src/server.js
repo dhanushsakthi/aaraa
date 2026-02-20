@@ -16,6 +16,11 @@ app.use(express.urlencoded({ extended: false }));
 // Static folder for uploads
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
+// Basic root route
+app.get('/', (req, res) => {
+    res.send('Aaraa Gift Shop API is running...');
+});
+
 // Routes
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/products', require('./routes/productRoutes'));
