@@ -2,6 +2,7 @@ require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 const connectDB = require('./config/db');
 const { notFound, errorHandler } = require('./middleware/errorMiddleware');
 
@@ -16,13 +17,26 @@ app.use(express.urlencoded({ extended: false }));
 // Static folder for uploads
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
+const staticPath = path.join(__dirname, '../frontend/dist');
+console.log('Checking for frontend dist at:', staticPath);
+
 // Serve frontend
-app.use(express.static(path.join(__dirname, '../frontend/dist')));
+app.use(express.static(staticPath));
 
 // API Routes
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
+
+// Debug route to verify deployment
+app.get('/api/debug-version', (req, res) => {
+    res.json({
+        status: 'Aaraa Gift Shop API is running (FIXED v1.0.1)',
+        timestamp: new Date(),
+        staticPathExists: fs.existsSync(staticPath),
+        staticPath: staticPath
+    });
+});
 
 // Root route to serve frontend index.html
 app.get('*', (req, res) => {
