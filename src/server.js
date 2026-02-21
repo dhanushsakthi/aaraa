@@ -20,9 +20,6 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 const staticPath = path.join(__dirname, '../frontend/dist');
 console.log('Checking for frontend dist at:', staticPath);
 
-// Serve frontend
-app.use(express.static(staticPath));
-
 // API Routes
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/products', require('./routes/productRoutes'));
@@ -31,19 +28,13 @@ app.use('/api/orders', require('./routes/orderRoutes'));
 // Debug route to verify deployment
 app.get('/api/debug-version', (req, res) => {
     res.json({
-        status: 'Aaraa Gift Shop API is running (FIXED v1.0.1)',
-        timestamp: new Date(),
-        staticPathExists: fs.existsSync(staticPath),
-        staticPath: staticPath
+        status: 'Aaraa Gift Shop API is running (FIXED v1.0.2)',
+        timestamp: new Date()
     });
 });
 
-// Root route to serve frontend index.html
-app.get('*', (req, res) => {
-    // If request is not an API call, serve index.html
-    if (!req.url.startsWith('/api/')) {
-        res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
-    }
+app.get('/api', (req, res) => {
+    res.json({ message: 'Aaraa Gift Shop API is operational' });
 });
 
 app.use(notFound);
