@@ -32,7 +32,7 @@ const EnquiryFloating = () => {
                         </button>
                         <div className="testimonial-content">
                             <div className="product-thumb">
-                                <img src="https://www.wedtree.com/cdn/shop/files/Brass-Murugan-Idol-WL4147-1.jpg?v=1708422453&width=100" alt="Murugan Idol" />
+                                <img src="https://images.unsplash.com/photo-1627916607164-7b20241db935?auto=format&fit=crop&q=80&w=200" alt="Murugan Idol" />
                             </div>
                             <div className="review-details">
                                 <div className="stars">

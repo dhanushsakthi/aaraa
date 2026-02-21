@@ -3,12 +3,12 @@ import { motion } from 'framer-motion';
 import { Star, ArrowRight, ChevronRight } from 'lucide-react';
 
 const categories = [
-  { name: "Home Decor", image: "https://www.wedtree.com/cdn/shop/files/unnamed_33.jpg?v=1708422453&width=200" },
-  { name: "Tin Jars", image: "https://www.wedtree.com/cdn/shop/files/unnamed_34.jpg?v=1708422453&width=200" },
-  { name: "Meenakari", image: "https://www.wedtree.com/cdn/shop/files/unnamed_35_8c26372b-8a1a-428a-8c5a-6663556d773c.jpg?v=1708422453&width=200" },
-  { name: "Figurines", image: "https://www.wedtree.com/cdn/shop/files/unnamed_36_db9fa5b5-77f6-4ef1-948f-8d76d47f9e42.jpg?v=1708422453&width=200" },
-  { name: "Diya", image: "https://www.wedtree.com/cdn/shop/files/unnamed_37_03e07d0f-4f27-4c07-8898-99e57774d001.jpg?v=1708422453&width=200" },
-  { name: "Jewellery Holders", image: "https://www.wedtree.com/cdn/shop/files/unnamed_38_170d7681-37d4-4ae7-8051-61614050774a.jpg?v=1708422453&width=200" }
+  { name: "Home Decor", image: "https://images.unsplash.com/photo-1581850518616-bcb8180ad898?auto=format&fit=crop&q=80&w=400" },
+  { name: "Tin Jars", image: "https://images.unsplash.com/photo-1590611357128-7a982c730d70?auto=format&fit=crop&q=80&w=400" },
+  { name: "Meenakari", image: "https://images.unsplash.com/photo-1513519107127-1bed33748e4c?auto=format&fit=crop&q=80&w=400" },
+  { name: "Figurines", image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=400" },
+  { name: "Diya", image: "https://images.unsplash.com/photo-1577918894170-ebbcd9356262?auto=format&fit=crop&q=80&w=400" },
+  { name: "Jewellery Holders", image: "https://images.unsplash.com/photo-1535555235828-97e99bc7583b?auto=format&fit=crop&q=80&w=400" }
 ];
 
 const budgetRanges = [
@@ -19,10 +19,10 @@ const budgetRanges = [
 ];
 
 const trendingProducts = [
-  { id: 1, name: "Premium Brass Ganesha", price: 1299, originalPrice: 1599, rating: 5, image: "https://www.wedtree.com/cdn/shop/products/WL3071_1.jpg?v=1661413814&width=300" },
-  { id: 2, name: "Meenakari Peacocok Plate", price: 449, originalPrice: 699, rating: 4, image: "https://www.wedtree.com/cdn/shop/products/Meenakari-Plate-Copper-Finish-1.jpg?v=1661413154&width=300" },
-  { id: 3, name: "Traditional Diya Set", price: 299, originalPrice: 499, rating: 5, image: "https://www.wedtree.com/cdn/shop/files/Diya-Set-1.jpg?v=1708422453&width=300" },
-  { id: 4, name: "Floral Jute Bag", price: 189, originalPrice: 249, rating: 4, image: "https://www.wedtree.com/cdn/shop/files/Jute-Bag-1.jpg?v=1708422453&width=300" }
+  { id: 1, name: "Premium Brass Ganesha", price: 1299, originalPrice: 1599, rating: 5, image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=400" },
+  { id: 2, name: "Meenakari Peacock Plate", price: 449, originalPrice: 699, rating: 4, image: "https://images.unsplash.com/photo-1513519107127-1bed33748e4c?auto=format&fit=crop&q=80&w=400" },
+  { id: 3, name: "Traditional Diya Set", price: 299, originalPrice: 499, rating: 5, image: "https://images.unsplash.com/photo-1577918894170-ebbcd9356262?auto=format&fit=crop&q=80&w=400" },
+  { id: 4, name: "Floral Jute Bag", price: 189, originalPrice: 249, rating: 4, image: "https://images.unsplash.com/photo-1591084728795-1149f32d9866?auto=format&fit=crop&q=80&w=400" }
 ];
 
 const testimonials = [
