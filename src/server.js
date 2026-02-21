@@ -16,15 +16,21 @@ app.use(express.urlencoded({ extended: false }));
 // Static folder for uploads
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
-// Basic root route
-app.get('/', (req, res) => {
-    res.send('Aaraa Gift Shop API is running...');
-});
+// Serve frontend
+app.use(express.static(path.join(__dirname, '../frontend/dist')));
 
-// Routes
+// API Routes
 app.use('/api/users', require('./routes/userRoutes'));
 app.use('/api/products', require('./routes/productRoutes'));
 app.use('/api/orders', require('./routes/orderRoutes'));
+
+// Root route to serve frontend index.html
+app.get('*', (req, res) => {
+    // If request is not an API call, serve index.html
+    if (!req.url.startsWith('/api/')) {
+        res.sendFile(path.join(__dirname, '../frontend/dist/index.html'));
+    }
+});
 
 app.use(notFound);
 app.use(errorHandler);

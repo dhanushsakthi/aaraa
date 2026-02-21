@@ -2,12 +2,8 @@
   "version": 2,
   "rewrites": [
     {
-      "src": "/api/(.*)",
+      "src": "/(.*)",
       "dest": "src/server.js"
-    },
-    {
-      "src": "/((?!api/).*)",
-      "dest": "/frontend/dist/$1"
     }
   ]
 }
