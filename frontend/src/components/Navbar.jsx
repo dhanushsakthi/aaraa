@@ -1,10 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Search, ShoppingCart, Heart, User, ChevronDown } from 'lucide-react';
 import logo from '../assets/logo.png';
 
 const Navbar = () => {
+  const [isVisible, setIsVisible] = useState(true);
+  const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+
+      // Always show if at the very top
+      if (currentScrollPos < 50) {
+        setIsVisible(true);
+      } else {
+        // Hide if scrolling down, show if scrolling up
+        setIsVisible(prevScrollPos > currentScrollPos);
+      }
+
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [prevScrollPos]);
+
   return (
-    <header className="header">
+    <header className={`header ${!isVisible ? 'header-hidden' : ''}`}>
       {/* Top Bar */}
       <div className="top-bar">
         <div className="container">
@@ -76,6 +98,11 @@ const Navbar = () => {
                     top: 0;
                     z-index: 1000;
                     box-shadow: var(--shadow);
+                    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                }
+
+                .header-hidden {
+                    transform: translateY(-100%);
                 }
 
                 .top-bar {

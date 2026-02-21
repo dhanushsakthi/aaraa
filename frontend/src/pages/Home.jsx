@@ -23,6 +23,12 @@ const Home = () => {
     { id: 4, name: 'Customized Pen Holder Set', price: 699, originalPrice: 999, rating: 4, image: penSet2Img },
   ];
 
+  const testimonials = [
+    { id: 1, name: 'Priya Sharma', text: 'The quality of the return gifts was exceptional. My guests loved the Ganesha idols!', location: 'Chennai' },
+    { id: 2, name: 'Rahul V.', text: 'Fast delivery and premium packaging. Highly recommend for corporate gifting.', location: 'Bangalore' },
+    { id: 3, name: 'Anitha R.', text: 'The jute bags are so eco-friendly and stylish. Perfect for my daughter\'s wedding.', location: 'Hyderabad' },
+  ];
+
   return (
     <div className="home-page">
       {/* Hero Section */}
@@ -46,16 +52,17 @@ const Home = () => {
       </section>
 
       {/* Shop by Budget */}
-      <section className="section bg-light">
+      <section className="section-padding bg-pattern">
         <div className="container">
-          <motion.h2
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="section-title"
+            className="centered-header"
           >
-            Shop by Budget
-          </motion.h2>
+            <span className="section-subtitle">Discover</span>
+            <h2 className="section-title">Shop by Budget</h2>
+          </motion.div>
           <div className="budget-grid">
             {budgetCategories.map((cat, i) => (
               <motion.div
@@ -75,11 +82,14 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Featured Products */}
-      <section className="section">
+      {/* Trending Now */}
+      <section className="section-padding">
         <div className="container">
           <div className="section-header">
-            <h2 className="section-title">Aaraa's Best Sellers</h2>
+            <div>
+              <span className="section-subtitle">Most Loved</span>
+              <h2 className="section-title">Trending Now</h2>
+            </div>
             <a href="/shop" className="view-all">View All <ChevronRight size={16} /></a>
           </div>
           <div className="product-grid">
@@ -120,6 +130,70 @@ const Home = () => {
         </div>
       </section>
 
+      {/* Happy Hearts (Testimonials) */}
+      <section className="section-padding bg-primary-faded">
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="centered-header"
+          >
+            <span className="section-subtitle">Testimonials</span>
+            <h2 className="section-title">Happy Hearts</h2>
+          </motion.div>
+          <div className="testimonials-grid">
+            {testimonials.map((t, i) => (
+              <motion.div
+                key={t.id}
+                className="testimonial-card"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.2 }}
+                viewport={{ once: true }}
+              >
+                <div className="quote-icon">"</div>
+                <p>{t.text}</p>
+                <div className="testimonial-author">
+                  <strong>{t.name}</strong>
+                  <span>{t.location}</span>
+                </div>
+                <div className="verified-badge">Verified Gift Buyer</div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Our Story / Brand Section */}
+      <section className="section-padding bg-white border-y">
+        <div className="container story-layout">
+          <div className="story-img">
+            <img src="https://images.unsplash.com/photo-1513271922711-58b220b73c4d?auto=format&fit=crop&q=80&w=1000" alt="Gifting Story" />
+          </div>
+          <div className="story-content">
+            <span className="section-subtitle">Aaraa's Journey</span>
+            <h2 className="section-title">Crafting JOY with Tradition</h2>
+            <p>Welcome to Aaraa Gift Shop, your ultimate destination for exquisite return gifts. We believe that every celebration deserves a memory that lasts forever. Our handpicked collections reflect the rich cultural heritage of India, combined with modern luxury.</p>
+            <div className="story-stats">
+              <div className="stat-item">
+                <h3>5000+</h3>
+                <span>Gifts Delivered</span>
+              </div>
+              <div className="stat-item">
+                <h3>200+</h3>
+                <span>Unique Designs</span>
+              </div>
+              <div className="stat-item">
+                <h3>100%</h3>
+                <span>Handcrafted</span>
+              </div>
+            </div>
+            <button className="btn-primary">Learn More About Us</button>
+          </div>
+        </div>
+      </section>
+
       <style>{`
                 .home-page {
                     overflow-x: hidden;
@@ -129,7 +203,7 @@ const Home = () => {
                     background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1549465220-1d8c9d9c67bc?auto=format&fit=crop&q=80&w=2000');
                     background-size: cover;
                     background-position: center;
-                    height: 650px;
+                    height: 700px;
                     display: flex;
                     align-items: center;
                     color: white;
@@ -151,14 +225,14 @@ const Home = () => {
 
                 .hero h1 {
                     color: white;
-                    font-size: 4rem;
+                    font-size: 4.5rem;
                     line-height: 1.1;
                     margin-bottom: 2rem;
                     text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
                 }
 
                 .hero p {
-                    font-size: 1.2rem;
+                    font-size: 1.25rem;
                     opacity: 0.95;
                     margin-bottom: 3rem;
                     font-weight: 400;
@@ -172,28 +246,33 @@ const Home = () => {
                 .btn-primary {
                     background: var(--primary);
                     color: white;
-                    padding: 1.1rem 2.8rem;
+                    padding: 1.2rem 3rem;
                     font-weight: 700;
                     border-radius: 4px;
                     display: flex;
                     align-items: center;
                     gap: 0.75rem;
                     font-size: 1rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
                 }
 
                 .btn-primary:hover {
                     background: var(--primary-light);
                     transform: translateY(-2px);
+                    box-shadow: 0 10px 20px rgba(139, 29, 29, 0.2);
                 }
 
                 .btn-outline {
                     background: transparent;
                     color: white;
                     border: 2px solid white;
-                    padding: 1.1rem 2.8rem;
+                    padding: 1.2rem 3rem;
                     font-weight: 700;
                     border-radius: 4px;
                     font-size: 1rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
                 }
 
                 .btn-outline:hover {
@@ -201,30 +280,39 @@ const Home = () => {
                     color: var(--primary);
                 }
 
-                .section {
-                    padding: 6rem 0;
-                }
-
-                .bg-light {
+                .bg-pattern {
+                    background-image: radial-gradient(var(--secondary) 0.5px, transparent 0.5px);
+                    background-size: 30px 30px;
                     background-color: var(--background);
                 }
 
-                .section-title {
-                    text-align: center;
-                    font-size: 2.8rem;
-                    margin-bottom: 4.5rem;
-                    position: relative;
+                .bg-primary-faded {
+                    background-color: #FDF4F4;
+                    border-top: 1px solid rgba(139, 29, 29, 0.05);
+                    border-bottom: 1px solid rgba(139, 29, 29, 0.05);
                 }
 
-                .section-title::after {
-                    content: '';
-                    position: absolute;
-                    bottom: -15px;
-                    left: 50%;
-                    transform: translateX(-50%);
-                    width: 60px;
-                    height: 3px;
-                    background: var(--secondary);
+                .bg-white { background-color: #fff; }
+                .border-y { border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
+
+                .centered-header {
+                    text-align: center;
+                    margin-bottom: 4rem;
+                }
+
+                .section-subtitle {
+                    color: var(--secondary);
+                    text-transform: uppercase;
+                    letter-spacing: 3px;
+                    font-size: 0.8rem;
+                    font-weight: 700;
+                    margin-bottom: 1rem;
+                    display: block;
+                }
+
+                .section-title {
+                    font-size: 3rem;
+                    margin-bottom: 1rem;
                 }
 
                 .budget-grid {
@@ -234,13 +322,13 @@ const Home = () => {
                 }
 
                 .budget-card {
-                    background: var(--surface);
-                    padding: 3.5rem 2rem;
+                    background: #fff;
+                    padding: 4rem 2rem;
                     text-align: center;
                     border-radius: 12px;
-                    box-shadow: var(--shadow);
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
                     cursor: pointer;
-                    border: 1px solid rgba(0,0,0,0.03);
+                    border: 1px solid rgba(0,0,0,0.02);
                 }
 
                 .budget-circle {
@@ -255,13 +343,6 @@ const Home = () => {
                     margin: 0 auto 2rem;
                     font-size: 1.8rem;
                     font-weight: 700;
-                    box-shadow: 0 4px 10px rgba(139, 29, 29, 0.1);
-                }
-
-                .budget-card h3 {
-                    font-family: 'Inter', sans-serif;
-                    font-size: 1.1rem;
-                    color: var(--text-main);
                 }
 
                 .product-grid {
@@ -271,41 +352,31 @@ const Home = () => {
                 }
 
                 .product-card {
-                    background: var(--surface);
+                    background: #fff;
                     border-radius: 12px;
                     overflow: hidden;
-                    box-shadow: var(--shadow);
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
                     position: relative;
-                    border: 1px solid rgba(0,0,0,0.03);
-                }
-
-                .product-badge {
-                    position: absolute;
-                    top: 20px;
-                    left: 20px;
-                    background: var(--secondary);
-                    color: #000;
-                    padding: 0.4rem 1rem;
-                    font-size: 0.75rem;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                    border-radius: 4px;
-                    z-index: 10;
                 }
 
                 .product-img-wrapper {
                     aspect-ratio: 1;
+                    padding: 2rem;
                     background: #fbfbfb;
                     display: flex;
                     align-items: center;
                     justify-content: center;
-                    padding: 3rem;
                 }
 
                 .product-img-wrapper img {
                     max-width: 100%;
                     max-height: 100%;
                     object-fit: contain;
+                    transition: transform 0.5s ease;
+                }
+
+                .product-card:hover .product-img-wrapper img {
+                    transform: scale(1.08);
                 }
 
                 .product-info {
@@ -313,12 +384,145 @@ const Home = () => {
                     text-align: center;
                 }
 
-                .product-info h3 {
-                    font-family: 'Inter', sans-serif;
-                    font-size: 1.2rem;
-                    margin-bottom: 0.75rem;
+                .add-to-cart {
+                    width: 100%;
+                    padding: 1.1rem;
+                    background: #fff;
+                    border: 2px solid var(--primary);
+                    color: var(--primary);
+                    font-weight: 700;
+                    border-radius: 4px;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                }
+
+                .add-to-cart:hover {
+                    background: var(--primary);
+                    color: #fff;
+                }
+
+                .testimonials-grid {
+                    display: grid;
+                    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+                    gap: 3rem;
+                }
+
+                .testimonial-card {
+                    background: #fff;
+                    padding: 3rem;
+                    border-radius: 12px;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+                    position: relative;
+                    text-align: center;
+                }
+
+                .quote-icon {
+                    font-size: 5rem;
+                    color: #fcebd0;
+                    position: absolute;
+                    top: -10px;
+                    left: 20px;
+                    font-family: serif;
+                    line-height: 1;
+                    opacity: 0.5;
+                }
+
+                .testimonial-card p {
+                    font-size: 1.1rem;
+                    font-style: italic;
+                    margin-bottom: 2rem;
                     color: var(--text-main);
-                    font-weight: 600;
+                }
+
+                .testimonial-author {
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                .verified-badge {
+                    margin-top: 1.5rem;
+                    font-size: 0.7rem;
+                    color: #2e7d32;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+
+                .story-layout {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 5rem;
+                    align-items: center;
+                }
+
+                .story-img img {
+                    width: 100%;
+                    border-radius: 20px;
+                    box-shadow: 20px 20px 0 var(--accent);
+                }
+
+                .story-content p {
+                    font-size: 1.15rem;
+                    line-height: 1.8;
+                    margin-bottom: 3rem;
+                    color: var(--text-muted);
+                }
+
+                .story-stats {
+                    display: flex;
+                    gap: 3rem;
+                    margin-bottom: 3.5rem;
+                }
+
+                .stat-item h3 {
+                    font-size: 2rem;
+                    color: var(--primary);
+                    margin-bottom: 0.5rem;
+                }
+
+                .stat-item span {
+                    font-size: 0.9rem;
+                    text-transform: uppercase;
+                    letter-spacing: 1px;
+                    color: var(--text-muted);
+                }
+
+                @media (max-width: 900px) {
+                    .story-layout {
+                        grid-template-columns: 1fr;
+                        gap: 3rem;
+                    }
+                    .hero h1 { font-size: 3rem; }
+                    .section-title { font-size: 2.2rem; }
+                }
+
+                .section-header {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: 4rem;
+                }
+
+                .view-all {
+                    color: var(--primary);
+                    font-weight: 700;
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                    font-size: 1rem;
+                }
+
+                .product-badge {
+                  position: absolute;
+                  top: 20px;
+                  left: 20px;
+                  background: var(--secondary);
+                  color: #000;
+                  padding: 0.4rem 1rem;
+                  font-size: 0.75rem;
+                  font-weight: 700;
+                  text-transform: uppercase;
+                  border-radius: 4px;
+                  z-index: 10;
                 }
 
                 .product-rating {
@@ -347,62 +551,6 @@ const Home = () => {
                     color: var(--text-muted);
                     text-decoration: line-through;
                     font-size: 1rem;
-                }
-
-                .add-to-cart {
-                    width: 100%;
-                    padding: 1rem;
-                    background: transparent;
-                    border: 2px solid var(--primary);
-                    color: var(--primary);
-                    font-weight: 700;
-                    border-radius: 4px;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-                    font-size: 0.85rem;
-                }
-
-                .add-to-cart:hover {
-                    background: var(--primary);
-                    color: white;
-                }
-
-                .section-header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-bottom: 4.5rem;
-                }
-
-                .section-header .section-title {
-                    margin-bottom: 0;
-                    text-align: left;
-                }
-
-                .section-header .section-title::after {
-                    left: 0;
-                    transform: none;
-                }
-
-                .view-all {
-                    color: var(--primary);
-                    font-weight: 700;
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-                    font-size: 1rem;
-                }
-
-                @media (max-width: 768px) {
-                    .hero h1 {
-                        font-size: 2.5rem;
-                    }
-                    .hero {
-                        height: 550px;
-                    }
-                    .section-title {
-                        font-size: 2.2rem;
-                    }
                 }
             `}</style>
     </div>
