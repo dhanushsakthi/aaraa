@@ -70,23 +70,23 @@ const Navbar = () => {
             <li className="nav-item">
               <a href="/new-arrivals" className="nav-link highlight">New & Best Sellers</a>
             </li>
-            <li className="nav-item has-dropdown">
-              <a href="/category/return-gifts" className="nav-link">Return Gifts <ChevronDown size={14} /></a>
+            <li className="nav-item">
+              <a href="/category/return-gifts" className="nav-link">Return Gifts</a>
             </li>
-            <li className="nav-item has-dropdown">
-              <a href="/category/favour-bags" className="nav-link">Favour Bags <ChevronDown size={14} /></a>
+            <li className="nav-item">
+              <a href="/category/favour-bags" className="nav-link">Favour Bags</a>
             </li>
-            <li className="nav-item has-dropdown">
-              <a href="/category/personal-gifts" className="nav-link">Personal Gifts <ChevronDown size={14} /></a>
+            <li className="nav-item">
+              <a href="/category/personal-gifts" className="nav-link">Personal Gifts</a>
             </li>
-            <li className="nav-item has-dropdown">
-              <a href="/category/home-living" className="nav-link">Home & Living <ChevronDown size={14} /></a>
+            <li className="nav-item">
+              <a href="/category/home-living" className="nav-link">Home & Living</a>
             </li>
-            <li className="nav-item has-dropdown">
-              <a href="/category/gifting-moments" className="nav-link">Gifting for Moments <ChevronDown size={14} /></a>
+            <li className="nav-item">
+              <a href="/category/gifting-moments" className="nav-link">Gifting for Moments</a>
             </li>
-            <li className="nav-item has-dropdown">
-              <a href="/category/corporate" className="nav-link">Corporate Gifting <ChevronDown size={14} /></a>
+            <li className="nav-item">
+              <a href="/category/corporate" className="nav-link">Corporate Gifting</a>
             </li>
           </ul>
         </div>

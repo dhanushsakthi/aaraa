@@ -32,14 +32,14 @@ const EnquiryFloating = () => {
                         </button>
                         <div className="testimonial-content">
                             <div className="product-thumb">
-                                <img src="https://images.unsplash.com/photo-1627916607164-7b20241db935?auto=format&fit=crop&q=80&w=200" alt="Murugan Idol" />
+                                <img src="https://images.unsplash.com/photo-1608681534062-638706341257?auto=format&fit=crop&q=80&w=200" alt="Brass Murugan Idol" />
                             </div>
                             <div className="review-details">
                                 <div className="stars">
                                     {[...Array(5)].map((_, i) => <Star key={i} size={10} fill="#FFD700" stroke="none" />)}
                                 </div>
-                                <p>"Nothing else is needed to be said about wedtree products. The idol is stunning..."</p>
-                                <span className="product-name">Brass Murugan Idol - WL4147</span>
+                                <p>"Nothing else is needed to be said about these products. The idol is stunning and the craftsmanship is superior..."</p>
+                                <span className="product-name">Brass Murugan Idol - Aaraa Exclusive</span>
                             </div>
                         </div>
                     </motion.div>

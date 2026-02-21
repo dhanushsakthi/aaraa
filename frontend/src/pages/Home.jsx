@@ -3,32 +3,32 @@ import { motion } from 'framer-motion';
 import { Star, ArrowRight, ChevronRight } from 'lucide-react';
 
 const categories = [
-  { name: "Home Decor", image: "https://images.unsplash.com/photo-1581850518616-bcb8180ad898?auto=format&fit=crop&q=80&w=400" },
-  { name: "Tin Jars", image: "https://images.unsplash.com/photo-1590611357128-7a982c730d70?auto=format&fit=crop&q=80&w=400" },
-  { name: "Meenakari", image: "https://images.unsplash.com/photo-1513519107127-1bed33748e4c?auto=format&fit=crop&q=80&w=400" },
-  { name: "Figurines", image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=400" },
-  { name: "Diya", image: "https://images.unsplash.com/photo-1577918894170-ebbcd9356262?auto=format&fit=crop&q=80&w=400" },
-  { name: "Jewellery Holders", image: "https://images.unsplash.com/photo-1535555235828-97e99bc7583b?auto=format&fit=crop&q=80&w=400" }
+  { name: "Jute Bags", image: "https://images.unsplash.com/photo-1591084728795-1149f32d9866?auto=format&fit=crop&q=80&w=400" },
+  { name: "Brass Idols", image: "https://images.unsplash.com/photo-1608681534062-638706341257?auto=format&fit=crop&q=80&w=400" },
+  { name: "Puja Utilites", image: "https://images.unsplash.com/photo-1577918894170-ebbcd9356262?auto=format&fit=crop&q=80&w=400" },
+  { name: "Dry Fruit Boxes", image: "https://images.unsplash.com/photo-1590611357128-7a982c730d70?auto=format&fit=crop&q=80&w=400" },
+  { name: "Meenakari Plate", image: "https://images.unsplash.com/photo-1513519107127-1bed33748e4c?auto=format&fit=crop&q=80&w=400" },
+  { name: "Decorative Diyas", image: "https://images.unsplash.com/photo-1605342013849-078508f77372?auto=format&fit=crop&q=80&w=400" }
 ];
 
 const budgetRanges = [
-  { range: "249", icon: "🎁" },
-  { range: "499", icon: "✨" },
-  { range: "999", icon: "👑" },
-  { range: "1999", icon: "💎" }
+  { range: "99", icon: "💎" },
+  { range: "149", icon: "✨" },
+  { range: "249", icon: "🍱" },
+  { range: "Premium", icon: "👑" }
 ];
 
 const trendingProducts = [
-  { id: 1, name: "Premium Brass Ganesha", price: 1299, originalPrice: 1599, rating: 5, image: "https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&fit=crop&q=80&w=400" },
-  { id: 2, name: "Meenakari Peacock Plate", price: 449, originalPrice: 699, rating: 4, image: "https://images.unsplash.com/photo-1513519107127-1bed33748e4c?auto=format&fit=crop&q=80&w=400" },
-  { id: 3, name: "Traditional Diya Set", price: 299, originalPrice: 499, rating: 5, image: "https://images.unsplash.com/photo-1577918894170-ebbcd9356262?auto=format&fit=crop&q=80&w=400" },
-  { id: 4, name: "Floral Jute Bag", price: 189, originalPrice: 249, rating: 4, image: "https://images.unsplash.com/photo-1591084728795-1149f32d9866?auto=format&fit=crop&q=80&w=400" }
+  { id: 1, name: "Premium Brass Ganesha Idol", price: 1299, originalPrice: 1599, rating: 5, image: "https://images.unsplash.com/photo-1608681534062-638706341257?auto=format&fit=crop&q=80&w=400" },
+  { id: 2, name: "Embroidered Return Gift Bag", price: 189, originalPrice: 249, rating: 4, image: "https://images.unsplash.com/photo-1591084728795-1149f32d9866?auto=format&fit=crop&q=80&w=400" },
+  { id: 3, name: "Ornate Brass Diya Set", price: 299, originalPrice: 499, rating: 5, image: "https://images.unsplash.com/photo-1605342013849-078508f77372?auto=format&fit=crop&q=80&w=400" },
+  { id: 4, name: "Traditional Meenakari Box", price: 449, originalPrice: 699, rating: 4, image: "https://images.unsplash.com/photo-1513519107127-1bed33748e4c?auto=format&fit=crop&q=80&w=400" }
 ];
 
 const testimonials = [
   { id: 1, name: "Priya Sharma", text: "The quality of the return gifts was exceptional. My guests loved the Ganesha idols!", location: "Chennai" },
-  { id: 2, name: "Rahul V.", text: "Fast delivery and premium packaging. Highly recommend for corporate gifting.", location: "Bangalore" },
-  { id: 3, name: "Anitha R.", text: "The jute bags are so eco-friendly and stylish. Perfect for my daughter's wedding.", location: "Hyderabad" },
+  { id: 2, name: "Rahul V.", text: "Fast delivery and premium packaging. Highly recommend Aaraa for corporate gifting.", location: "Bangalore" },
+  { id: 3, name: "Anitha R.", text: "The jute bags are so eco-friendly and stylish. Perfect for our family celebration.", location: "Hyderabad" },
 ];
 
 const Home = () => {
@@ -44,8 +44,8 @@ const Home = () => {
             className="hero-text"
           >
             <span className="subtitle">Crafting Memories</span>
-            <h1>Luxury Gifting Simplified</h1>
-            <p>Explore our exclusive collection of return gifts designed to leave a lasting impression on your guests.</p>
+            <h1>Aaraa Gift Shop</h1>
+            <p>Your one-stop destination for premium Indian return gifts and handcrafted treasures.</p>
             <div className="hero-btns">
               <button className="btn-primary">Shop Collection <ArrowRight size={18} /></button>
               <button className="btn-outline">Our Story</button>
@@ -54,7 +54,7 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Top Selling Categories - Wedtree Exact Style */}
+      {/* Top Selling Categories */}
       <section className="top-selling section-padding">
         <div className="container">
           <motion.div
@@ -62,8 +62,8 @@ const Home = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
           >
-            <h2 className="wedtree-title">Top Selling Return Gifts</h2>
-            <p className="wedtree-subtitle">A better way to say thanks</p>
+            <h2 className="premium-title">Top Selling Return Gifts</h2>
+            <p className="premium-subtitle">Quality gifts for your special moments</p>
           </motion.div>
 
           <div className="category-grid">
@@ -89,12 +89,12 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Shop by Budget */}
+      {/* Return Gifts by Price */}
       <section className="shop-by-budget section-padding bg-pattern">
         <div className="container">
-          <div className="section-header">
-            <h2>Shop by Budget</h2>
-            <p>Find the perfect gift within your range</p>
+          <div className="section-header text-center">
+            <h2 className="premium-title">Return Gifts By Price</h2>
+            <p className="premium-subtitle">Find the perfect gift within your budget</p>
           </div>
           <div className="budget-grid">
             {budgetRanges.map((budget, i) => (
@@ -108,8 +108,8 @@ const Home = () => {
                 viewport={{ once: true }}
               >
                 <div className="budget-icon">{budget.icon}</div>
-                <h3>Under ₹{budget.range}</h3>
-                <p>Premium selection starting at base price</p>
+                <h3>{budget.range === 'Premium' ? 'Premium' : `Under ₹${budget.range}`}</h3>
+                <p>Premium selection of return gifts</p>
               </motion.div>
             ))}
           </div>
@@ -121,8 +121,8 @@ const Home = () => {
         <div className="container">
           <div className="section-header flex-between">
             <div>
-              <h2>Trending Now</h2>
-              <p>Most loved gifts this season</p>
+              <h2 className="premium-title">Trending Now</h2>
+              <p className="premium-subtitle">Most loved gifts this season</p>
             </div>
             <button className="view-all">View All Products <ArrowRight size={16} /></button>
           </div>
@@ -136,7 +136,7 @@ const Home = () => {
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="product-badge">New Arrival</div>
+                <div className="product-badge">Top Choice</div>
                 <div className="product-img-wrapper">
                   <img src={product.image} alt={product.name} />
                 </div>
@@ -168,8 +168,8 @@ const Home = () => {
       <section className="testimonials section-padding bg-light">
         <div className="container">
           <div className="section-header text-center">
-            <h2>Happy Hearts</h2>
-            <p>Real stories from our beloved customers</p>
+            <h2 className="premium-title">Customer Stories</h2>
+            <p className="premium-subtitle">Real experiences from our celebrated shoppers</p>
           </div>
           <div className="testimonial-grid">
             {testimonials.map((t, i) => (
@@ -197,7 +197,7 @@ const Home = () => {
       <style>{`
                 .home-page { overflow-x: hidden; }
 
-                .wedtree-title {
+                .premium-title {
                     font-size: 2.2rem;
                     color: var(--primary);
                     margin-bottom: 0.5rem;
@@ -205,7 +205,7 @@ const Home = () => {
                     font-weight: 700;
                 }
 
-                .wedtree-subtitle {
+                .premium-subtitle {
                     font-size: 1.1rem;
                     color: #777;
                     margin-bottom: 3rem;
