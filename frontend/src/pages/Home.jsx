@@ -1,34 +1,37 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ChevronRight, Star, ArrowRight } from 'lucide-react';
-import flaskImg from '../assets/products/flask.png';
-import penSet1Img from '../assets/products/pen_set_1.jpg';
-import penSet2Img from '../assets/products/pen_set_2.png';
-import notebookSetImg from '../assets/products/notebook_set.png';
+import { Star, ArrowRight, ChevronRight } from 'lucide-react';
+
+const categories = [
+  { name: "Home Decor", image: "https://www.wedtree.com/cdn/shop/files/unnamed_33.jpg?v=1708422453&width=200" },
+  { name: "Tin Jars", image: "https://www.wedtree.com/cdn/shop/files/unnamed_34.jpg?v=1708422453&width=200" },
+  { name: "Meenakari", image: "https://www.wedtree.com/cdn/shop/files/unnamed_35_8c26372b-8a1a-428a-8c5a-6663556d773c.jpg?v=1708422453&width=200" },
+  { name: "Figurines", image: "https://www.wedtree.com/cdn/shop/files/unnamed_36_db9fa5b5-77f6-4ef1-948f-8d76d47f9e42.jpg?v=1708422453&width=200" },
+  { name: "Diya", image: "https://www.wedtree.com/cdn/shop/files/unnamed_37_03e07d0f-4f27-4c07-8898-99e57774d001.jpg?v=1708422453&width=200" },
+  { name: "Jewellery Holders", image: "https://www.wedtree.com/cdn/shop/files/unnamed_38_170d7681-37d4-4ae7-8051-61614050774a.jpg?v=1708422453&width=200" }
+];
+
+const budgetRanges = [
+  { range: "249", icon: "🎁" },
+  { range: "499", icon: "✨" },
+  { range: "999", icon: "👑" },
+  { range: "1999", icon: "💎" }
+];
+
+const trendingProducts = [
+  { id: 1, name: "Premium Brass Ganesha", price: 1299, originalPrice: 1599, rating: 5, image: "https://www.wedtree.com/cdn/shop/products/WL3071_1.jpg?v=1661413814&width=300" },
+  { id: 2, name: "Meenakari Peacocok Plate", price: 449, originalPrice: 699, rating: 4, image: "https://www.wedtree.com/cdn/shop/products/Meenakari-Plate-Copper-Finish-1.jpg?v=1661413154&width=300" },
+  { id: 3, name: "Traditional Diya Set", price: 299, originalPrice: 499, rating: 5, image: "https://www.wedtree.com/cdn/shop/files/Diya-Set-1.jpg?v=1708422453&width=300" },
+  { id: 4, name: "Floral Jute Bag", price: 189, originalPrice: 249, rating: 4, image: "https://www.wedtree.com/cdn/shop/files/Jute-Bag-1.jpg?v=1708422453&width=300" }
+];
+
+const testimonials = [
+  { id: 1, name: "Priya Sharma", text: "The quality of the return gifts was exceptional. My guests loved the Ganesha idols!", location: "Chennai" },
+  { id: 2, name: "Rahul V.", text: "Fast delivery and premium packaging. Highly recommend for corporate gifting.", location: "Bangalore" },
+  { id: 3, name: "Anitha R.", text: "The jute bags are so eco-friendly and stylish. Perfect for my daughter's wedding.", location: "Hyderabad" },
+];
 
 const Home = () => {
-  // Mock categories for "Shop by Budget"
-  const budgetCategories = [
-    { title: 'Under ₹249', range: '249' },
-    { title: 'Under ₹499', range: '499' },
-    { title: 'Under ₹999', range: '999' },
-    { title: 'Premium Gifts', range: 'above' },
-  ];
-
-  // Mock featured products using user assets
-  const featuredProducts = [
-    { id: 1, name: 'LED Temperature Flask', price: 999, originalPrice: 1499, rating: 5, image: flaskImg },
-    { id: 2, name: 'Premium Pen & Keychain Set', price: 499, originalPrice: 799, rating: 4, image: penSet1Img },
-    { id: 3, name: 'Corporate Gift Notebook Set', price: 1249, originalPrice: 1899, rating: 5, image: notebookSetImg },
-    { id: 4, name: 'Customized Pen Holder Set', price: 699, originalPrice: 999, rating: 4, image: penSet2Img },
-  ];
-
-  const testimonials = [
-    { id: 1, name: 'Priya Sharma', text: 'The quality of the return gifts was exceptional. My guests loved the Ganesha idols!', location: 'Chennai' },
-    { id: 2, name: 'Rahul V.', text: 'Fast delivery and premium packaging. Highly recommend for corporate gifting.', location: 'Bangalore' },
-    { id: 3, name: 'Anitha R.', text: 'The jute bags are so eco-friendly and stylish. Perfect for my daughter\'s wedding.', location: 'Hyderabad' },
-  ];
-
   return (
     <div className="home-page">
       {/* Hero Section */}
@@ -51,20 +54,50 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Shop by Budget */}
-      <section className="section-padding bg-pattern">
+      {/* Top Selling Categories - Wedtree Exact Style */}
+      <section className="top-selling section-padding">
         <div className="container">
           <motion.div
+            className="section-header text-center"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="centered-header"
           >
-            <span className="section-subtitle">Discover</span>
-            <h2 className="section-title">Shop by Budget</h2>
+            <h2 className="wedtree-title">Top Selling Return Gifts</h2>
+            <p className="wedtree-subtitle">A better way to say thanks</p>
           </motion.div>
+
+          <div className="category-grid">
+            {categories.map((cat, i) => (
+              <motion.div
+                key={i}
+                className="category-card"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -5 }}
+              >
+                <div className="category-img">
+                  <template shadowroot="open">
+                    <style>{`img { width: 100%; height: 100%; object-fit: cover; }`}</style>
+                  </template>
+                  <img src={cat.image} alt={cat.name} />
+                </div>
+                <h3>{cat.name}</h3>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Shop by Budget */}
+      <section className="shop-by-budget section-padding bg-pattern">
+        <div className="container">
+          <div className="section-header">
+            <h2>Shop by Budget</h2>
+            <p>Find the perfect gift within your range</p>
+          </div>
           <div className="budget-grid">
-            {budgetCategories.map((cat, i) => (
+            {budgetRanges.map((budget, i) => (
               <motion.div
                 key={i}
                 className="budget-card"
@@ -74,26 +107,27 @@ const Home = () => {
                 transition={{ delay: i * 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className="budget-circle">₹</div>
-                <h3>{cat.title}</h3>
+                <div className="budget-icon">{budget.icon}</div>
+                <h3>Under ₹{budget.range}</h3>
+                <p>Premium selection starting at base price</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Trending Now */}
-      <section className="section-padding">
+      {/* Trending Section */}
+      <section className="trending section-padding">
         <div className="container">
-          <div className="section-header">
+          <div className="section-header flex-between">
             <div>
-              <span className="section-subtitle">Most Loved</span>
-              <h2 className="section-title">Trending Now</h2>
+              <h2>Trending Now</h2>
+              <p>Most loved gifts this season</p>
             </div>
-            <a href="/shop" className="view-all">View All <ChevronRight size={16} /></a>
+            <button className="view-all">View All Products <ArrowRight size={16} /></button>
           </div>
-          <div className="product-grid">
-            {featuredProducts.map((product, i) => (
+          <div className="products-grid">
+            {trendingProducts.map((product, i) => (
               <motion.div
                 key={product.id}
                 className="product-card"
@@ -130,19 +164,14 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Happy Hearts (Testimonials) */}
-      <section className="section-padding bg-primary-faded">
+      {/* Happy Hearts Section */}
+      <section className="testimonials section-padding bg-light">
         <div className="container">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="centered-header"
-          >
-            <span className="section-subtitle">Testimonials</span>
-            <h2 className="section-title">Happy Hearts</h2>
-          </motion.div>
-          <div className="testimonials-grid">
+          <div className="section-header text-center">
+            <h2>Happy Hearts</h2>
+            <p>Real stories from our beloved customers</p>
+          </div>
+          <div className="testimonial-grid">
             {testimonials.map((t, i) => (
               <motion.div
                 key={t.id}
@@ -165,77 +194,102 @@ const Home = () => {
         </div>
       </section>
 
-      {/* Our Story / Brand Section */}
-      <section className="section-padding bg-white border-y">
-        <div className="container story-layout">
-          <div className="story-img">
-            <img src="https://images.unsplash.com/photo-1513271922711-58b220b73c4d?auto=format&fit=crop&q=80&w=1000" alt="Gifting Story" />
-          </div>
-          <div className="story-content">
-            <span className="section-subtitle">Aaraa's Journey</span>
-            <h2 className="section-title">Crafting JOY with Tradition</h2>
-            <p>Welcome to Aaraa Gift Shop, your ultimate destination for exquisite return gifts. We believe that every celebration deserves a memory that lasts forever. Our handpicked collections reflect the rich cultural heritage of India, combined with modern luxury.</p>
-            <div className="story-stats">
-              <div className="stat-item">
-                <h3>5000+</h3>
-                <span>Gifts Delivered</span>
-              </div>
-              <div className="stat-item">
-                <h3>200+</h3>
-                <span>Unique Designs</span>
-              </div>
-              <div className="stat-item">
-                <h3>100%</h3>
-                <span>Handcrafted</span>
-              </div>
-            </div>
-            <button className="btn-primary">Learn More About Us</button>
-          </div>
-        </div>
-      </section>
-
       <style>{`
-                .home-page {
-                    overflow-x: hidden;
+                .home-page { overflow-x: hidden; }
+
+                .wedtree-title {
+                    font-size: 2.2rem;
+                    color: var(--primary);
+                    margin-bottom: 0.5rem;
+                    font-family: 'Playfair Display', serif;
+                    font-weight: 700;
+                }
+
+                .wedtree-subtitle {
+                    font-size: 1.1rem;
+                    color: #777;
+                    margin-bottom: 3rem;
+                }
+
+                .category-grid {
+                    display: grid;
+                    grid-template-columns: repeat(6, 1fr);
+                    gap: 1.5rem;
+                }
+
+                .category-card {
+                    background: #FDF8F0;
+                    border-radius: 12px;
+                    padding: 1.5rem 1rem;
+                    text-align: center;
+                    cursor: pointer;
+                    transition: var(--transition);
+                }
+
+                .category-card:hover {
+                    background: #F8F4EA;
+                    box-shadow: 0 10px 20px rgba(139, 29, 29, 0.05);
+                }
+
+                .category-img {
+                    aspect-ratio: 1;
+                    border-radius: 8px;
+                    overflow: hidden;
+                    margin-bottom: 1.25rem;
+                    background: #fff;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+
+                .category-img img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: contain;
+                }
+
+                .category-card h3 {
+                    font-size: 0.95rem;
+                    color: var(--primary);
+                    font-weight: 700;
+                    margin: 0;
+                    letter-spacing: 0.2px;
                 }
 
                 .hero {
-                    background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1549465220-1d8c9d9c67bc?auto=format&fit=crop&q=80&w=2000');
+                    height: 80vh;
+                    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1513201099705-a9746e1e201f?auto=format&fit=crop&q=80');
                     background-size: cover;
                     background-position: center;
-                    height: 700px;
                     display: flex;
                     align-items: center;
                     color: white;
                 }
 
-                .hero-text {
-                    max-width: 650px;
+                .hero-content {
+                    max-width: 800px;
                 }
 
-                .subtitle {
-                    display: block;
+                .hero-text h1 {
+                    font-size: 4rem;
+                    margin-bottom: 1.5rem;
+                    line-height: 1.1;
+                }
+
+                .hero-text .subtitle {
                     text-transform: uppercase;
                     letter-spacing: 4px;
-                    font-size: 0.85rem;
-                    margin-bottom: 1.5rem;
-                    font-weight: 700;
+                    font-size: 0.9rem;
+                    margin-bottom: 1rem;
+                    display: block;
+                    font-weight: 600;
                     color: var(--secondary);
                 }
 
-                .hero h1 {
-                    color: white;
-                    font-size: 4.5rem;
-                    line-height: 1.1;
-                    margin-bottom: 2rem;
-                    text-shadow: 2px 2px 10px rgba(0,0,0,0.2);
-                }
-
-                .hero p {
+                .hero-text p {
                     font-size: 1.25rem;
-                    opacity: 0.95;
-                    margin-bottom: 3rem;
-                    font-weight: 400;
+                    margin-bottom: 2.5rem;
+                    opacity: 0.9;
                 }
 
                 .hero-btns {
@@ -243,314 +297,156 @@ const Home = () => {
                     gap: 1.5rem;
                 }
 
-                .btn-primary {
-                    background: var(--primary);
-                    color: white;
-                    padding: 1.2rem 3rem;
-                    font-weight: 700;
-                    border-radius: 4px;
-                    display: flex;
-                    align-items: center;
-                    gap: 0.75rem;
-                    font-size: 1rem;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-                }
-
-                .btn-primary:hover {
-                    background: var(--primary-light);
-                    transform: translateY(-2px);
-                    box-shadow: 0 10px 20px rgba(139, 29, 29, 0.2);
-                }
-
-                .btn-outline {
-                    background: transparent;
-                    color: white;
-                    border: 2px solid white;
-                    padding: 1.2rem 3rem;
-                    font-weight: 700;
-                    border-radius: 4px;
-                    font-size: 1rem;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-                }
-
-                .btn-outline:hover {
-                    background: white;
-                    color: var(--primary);
-                }
+                .section-header { margin-bottom: 3.5rem; }
+                .section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: var(--primary); }
+                .text-center { text-align: center; }
 
                 .bg-pattern {
                     background-image: radial-gradient(var(--secondary) 0.5px, transparent 0.5px);
                     background-size: 30px 30px;
-                    background-color: var(--background);
-                }
-
-                .bg-primary-faded {
-                    background-color: #FDF4F4;
-                    border-top: 1px solid rgba(139, 29, 29, 0.05);
-                    border-bottom: 1px solid rgba(139, 29, 29, 0.05);
-                }
-
-                .bg-white { background-color: #fff; }
-                .border-y { border-top: 1px solid #eee; border-bottom: 1px solid #eee; }
-
-                .centered-header {
-                    text-align: center;
-                    margin-bottom: 4rem;
-                }
-
-                .section-subtitle {
-                    color: var(--secondary);
-                    text-transform: uppercase;
-                    letter-spacing: 3px;
-                    font-size: 0.8rem;
-                    font-weight: 700;
-                    margin-bottom: 1rem;
-                    display: block;
-                }
-
-                .section-title {
-                    font-size: 3rem;
-                    margin-bottom: 1rem;
+                    background-color: #fafafa;
                 }
 
                 .budget-grid {
                     display: grid;
-                    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-                    gap: 2.5rem;
+                    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                    gap: 2rem;
                 }
 
                 .budget-card {
-                    background: #fff;
-                    padding: 4rem 2rem;
+                    background: white;
+                    padding: 2.5rem;
+                    border-radius: 20px;
                     text-align: center;
-                    border-radius: 12px;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-                    cursor: pointer;
-                    border: 1px solid rgba(0,0,0,0.02);
+                    box-shadow: var(--shadow);
+                    border: 1px solid #f0f0f0;
+                    transition: var(--transition);
                 }
 
-                .budget-circle {
-                    width: 70px;
-                    height: 70px;
-                    background: var(--accent);
-                    color: var(--primary);
-                    border-radius: 50%;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
-                    margin: 0 auto 2rem;
-                    font-size: 1.8rem;
-                    font-weight: 700;
+                .budget-icon { 
+                    font-size: 2.5rem; 
+                    margin-bottom: 1.5rem;
+                    color: var(--secondary);
                 }
 
-                .product-grid {
+                .products-grid {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-                    gap: 3rem;
+                    gap: 2.5rem;
                 }
 
                 .product-card {
-                    background: #fff;
-                    border-radius: 12px;
+                    background: white;
+                    border-radius: 15px;
                     overflow: hidden;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+                    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+                    transition: var(--transition);
                     position: relative;
+                }
+
+                .product-badge {
+                    position: absolute;
+                    top: 15px;
+                    left: 15px;
+                    background: var(--primary);
+                    color: white;
+                    padding: 4px 12px;
+                    border-radius: 50px;
+                    font-size: 0.75rem;
+                    font-weight: 600;
+                    z-index: 10;
                 }
 
                 .product-img-wrapper {
                     aspect-ratio: 1;
-                    padding: 2rem;
-                    background: #fbfbfb;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    overflow: hidden;
+                    background: #fdfdfd;
+                    padding: 1.5rem;
                 }
 
                 .product-img-wrapper img {
-                    max-width: 100%;
-                    max-height: 100%;
+                    width: 100%;
+                    height: 100%;
                     object-fit: contain;
                     transition: transform 0.5s ease;
                 }
 
                 .product-card:hover .product-img-wrapper img {
-                    transform: scale(1.08);
+                    transform: scale(1.1);
                 }
 
-                .product-info {
-                    padding: 2rem;
-                    text-align: center;
-                }
+                .product-info { padding: 1.5rem; text-align: center; }
+                .product-rating { display: flex; gap: 2px; color: #ffc107; margin-bottom: 0.5rem; justify-content: center; }
+                .product-price { display: flex; gap: 10px; align-items: center; margin-bottom: 1.5rem; justify-content: center; }
+                .price { font-size: 1.4rem; font-weight: 700; color: var(--primary); }
+                .original-price { text-decoration: line-through; color: #999; font-size: 0.9rem; }
 
                 .add-to-cart {
                     width: 100%;
-                    padding: 1.1rem;
-                    background: #fff;
+                    padding: 0.8rem;
+                    background: white;
                     border: 2px solid var(--primary);
                     color: var(--primary);
+                    border-radius: 8px;
                     font-weight: 700;
-                    border-radius: 4px;
+                    transition: var(--transition);
                     text-transform: uppercase;
-                    letter-spacing: 1px;
+                    letter-spacing: 0.5px;
                 }
 
                 .add-to-cart:hover {
                     background: var(--primary);
-                    color: #fff;
+                    color: white;
                 }
 
-                .testimonials-grid {
+                .testimonial-grid {
                     display: grid;
                     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-                    gap: 3rem;
+                    gap: 2rem;
                 }
 
                 .testimonial-card {
-                    background: #fff;
-                    padding: 3rem;
-                    border-radius: 12px;
-                    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+                    background: white;
+                    padding: 2.5rem;
+                    border-radius: 20px;
                     position: relative;
+                    box-shadow: 0 10px 30px rgba(0,0,0,0.03);
                     text-align: center;
                 }
 
                 .quote-icon {
-                    font-size: 5rem;
-                    color: #fcebd0;
+                    font-size: 4rem;
+                    color: var(--secondary);
+                    opacity: 0.2;
                     position: absolute;
-                    top: -10px;
+                    top: 10px;
                     left: 20px;
                     font-family: serif;
-                    line-height: 1;
-                    opacity: 0.5;
                 }
 
                 .testimonial-card p {
-                    font-size: 1.1rem;
                     font-style: italic;
-                    margin-bottom: 2rem;
-                    color: var(--text-main);
+                    margin-bottom: 1.5rem;
+                    color: #555;
+                    position: relative;
+                    z-index: 1;
+                    font-size: 1.05rem;
                 }
 
-                .testimonial-author {
-                    display: flex;
-                    flex-direction: column;
+                .testimonial-author strong { display: block; color: var(--primary); font-size: 1.1rem; }
+                .testimonial-author span { color: #888; font-size: 0.9rem; }
+
+                .flex-between { display: flex; justify-content: space-between; align-items: flex-end; }
+                .view-all { background: none; border: none; color: var(--primary); font-weight: 700; display: flex; align-items: center; gap: 0.5rem; cursor: pointer; }
+
+                @media (max-width: 1024px) {
+                    .category-grid { grid-template-columns: repeat(3, 1fr); }
                 }
 
-                .verified-badge {
-                    margin-top: 1.5rem;
-                    font-size: 0.7rem;
-                    color: #2e7d32;
-                    font-weight: 700;
-                    text-transform: uppercase;
-                }
-
-                .story-layout {
-                    display: grid;
-                    grid-template-columns: 1fr 1fr;
-                    gap: 5rem;
-                    align-items: center;
-                }
-
-                .story-img img {
-                    width: 100%;
-                    border-radius: 20px;
-                    box-shadow: 20px 20px 0 var(--accent);
-                }
-
-                .story-content p {
-                    font-size: 1.15rem;
-                    line-height: 1.8;
-                    margin-bottom: 3rem;
-                    color: var(--text-muted);
-                }
-
-                .story-stats {
-                    display: flex;
-                    gap: 3rem;
-                    margin-bottom: 3.5rem;
-                }
-
-                .stat-item h3 {
-                    font-size: 2rem;
-                    color: var(--primary);
-                    margin-bottom: 0.5rem;
-                }
-
-                .stat-item span {
-                    font-size: 0.9rem;
-                    text-transform: uppercase;
-                    letter-spacing: 1px;
-                    color: var(--text-muted);
-                }
-
-                @media (max-width: 900px) {
-                    .story-layout {
-                        grid-template-columns: 1fr;
-                        gap: 3rem;
-                    }
-                    .hero h1 { font-size: 3rem; }
-                    .section-title { font-size: 2.2rem; }
-                }
-
-                .section-header {
-                    display: flex;
-                    justify-content: space-between;
-                    align-items: center;
-                    margin-bottom: 4rem;
-                }
-
-                .view-all {
-                    color: var(--primary);
-                    font-weight: 700;
-                    display: flex;
-                    align-items: center;
-                    gap: 0.5rem;
-                    font-size: 1rem;
-                }
-
-                .product-badge {
-                  position: absolute;
-                  top: 20px;
-                  left: 20px;
-                  background: var(--secondary);
-                  color: #000;
-                  padding: 0.4rem 1rem;
-                  font-size: 0.75rem;
-                  font-weight: 700;
-                  text-transform: uppercase;
-                  border-radius: 4px;
-                  z-index: 10;
-                }
-
-                .product-rating {
-                    color: #FFD700;
-                    margin-bottom: 1.25rem;
-                    display: flex;
-                    justify-content: center;
-                    gap: 0.2rem;
-                }
-
-                .product-price {
-                    display: flex;
-                    justify-content: center;
-                    gap: 1.25rem;
-                    align-items: center;
-                    margin-bottom: 2rem;
-                }
-
-                .price {
-                    color: var(--primary);
-                    font-weight: 700;
-                    font-size: 1.4rem;
-                }
-
-                .original-price {
-                    color: var(--text-muted);
-                    text-decoration: line-through;
-                    font-size: 1rem;
+                @media (max-width: 768px) {
+                    .hero-text h1 { font-size: 2.5rem; }
+                    .category-grid { grid-template-columns: repeat(2, 1fr); }
+                    .hero { height: 60vh; }
                 }
             `}</style>
     </div>

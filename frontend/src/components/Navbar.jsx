@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Search, ShoppingCart, Heart, User, ChevronDown, MessageCircle } from 'lucide-react';
+import { Search, ShoppingCart, Heart, User, ChevronDown } from 'lucide-react';
 import logo from '../assets/logo.png';
-import EnquiryModal from './EnquiryModal';
 
 const Navbar = () => {
   const [isVisible, setIsVisible] = useState(true);
   const [prevScrollPos, setPrevScrollPos] = useState(0);
-  const [isEnquiryOpen, setIsEnquiryOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,272 +26,232 @@ const Navbar = () => {
   }, [prevScrollPos]);
 
   return (
-    <>
-      <header className={`header ${!isVisible ? 'header-hidden' : ''}`}>
-        {/* Top Bar */}
-        <div className="top-bar">
-          <div className="container">
-            <p>Free Shipping on orders above ₹1000 | Premium Return Gifts</p>
-          </div>
+    <header className={`header ${!isVisible ? 'header-hidden' : ''}`}>
+      {/* Top Bar */}
+      <div className="top-bar">
+        <div className="container">
+          <p>Free Shipping on orders above ₹1000 | Premium Return Gifts</p>
         </div>
+      </div>
 
-        {/* Main Header */}
-        <div className="main-header">
-          <div className="container nav-layout">
-            <div className="logo-section">
-              <a href="/">
-                <img src={logo} alt="Aaraa Gift Shop" className="site-logo" />
-              </a>
+      {/* Main Header */}
+      <div className="main-header">
+        <div className="container nav-layout">
+          {/* Left: Search */}
+          <div className="search-section">
+            <div className="search-bar">
+              <input type="text" placeholder="What are you looking for?" />
+              <Search size={20} className="search-icon" />
             </div>
+          </div>
 
-            <div className="search-section">
-              <div className="search-bar">
-                <input type="text" placeholder="Search for premium return gifts..." />
-                <Search size={20} className="search-icon" />
-              </div>
-            </div>
+          {/* Center: Logo */}
+          <div className="logo-section">
+            <a href="/">
+              <img src={logo} alt="Aaraa Gift Shop" className="site-logo" />
+            </a>
+          </div>
 
-            <div className="actions-section">
-              <button
-                className="enquire-now-btn"
-                onClick={() => setIsEnquiryOpen(true)}
-              >
-                <MessageCircle size={20} />
-                <span>Enquiry</span>
-              </button>
-              <div className="action-item"><User size={24} /><span>Account</span></div>
-              <div className="action-item"><Heart size={24} /><span>Wishlist</span></div>
-              <div className="action-item cart-btn">
-                <ShoppingCart size={24} />
-                <span className="cart-count">0</span>
-                <span>Cart</span>
-              </div>
+          {/* Right: Actions */}
+          <div className="actions-section">
+            <div className="action-item"><User size={24} /></div>
+            <div className="action-item cart-btn">
+              <ShoppingCart size={24} />
+              <span className="cart-count">0</span>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Navigation Menu */}
-        <nav className="nav-menu">
-          <div className="container">
-            <ul className="nav-list">
-              <li className="nav-item">
-                <a href="/new-arrivals" className="nav-link highlight">New & Best Sellers</a>
-              </li>
-              <li className="nav-item has-dropdown">
-                <a href="/category/return-gifts" className="nav-link">Return Gifts <ChevronDown size={14} /></a>
-              </li>
-              <li className="nav-item has-dropdown">
-                <a href="/category/by-price" className="nav-link">By Price <ChevronDown size={14} /></a>
-              </li>
-              <li className="nav-item">
-                <a href="/category/jute-bags" className="nav-link">Jute Bags</a>
-              </li>
-              <li className="nav-item">
-                <a href="/category/brass" className="nav-link">Brass</a>
-              </li>
-              <li className="nav-item">
-                <a href="/category/divine" className="nav-link">Divine Figurines</a>
-              </li>
-              <li className="nav-item">
-                <a href="/contact" className="nav-link">Contact</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
+      {/* Navigation Menu */}
+      <nav className="nav-menu">
+        <div className="container">
+          <ul className="nav-list">
+            <li className="nav-item">
+              <a href="/new-arrivals" className="nav-link highlight">New & Best Sellers</a>
+            </li>
+            <li className="nav-item has-dropdown">
+              <a href="/category/return-gifts" className="nav-link">Return Gifts <ChevronDown size={14} /></a>
+            </li>
+            <li className="nav-item has-dropdown">
+              <a href="/category/favour-bags" className="nav-link">Favour Bags <ChevronDown size={14} /></a>
+            </li>
+            <li className="nav-item has-dropdown">
+              <a href="/category/personal-gifts" className="nav-link">Personal Gifts <ChevronDown size={14} /></a>
+            </li>
+            <li className="nav-item has-dropdown">
+              <a href="/category/home-living" className="nav-link">Home & Living <ChevronDown size={14} /></a>
+            </li>
+            <li className="nav-item has-dropdown">
+              <a href="/category/gifting-moments" className="nav-link">Gifting for Moments <ChevronDown size={14} /></a>
+            </li>
+            <li className="nav-item has-dropdown">
+              <a href="/category/corporate" className="nav-link">Corporate Gifting <ChevronDown size={14} /></a>
+            </li>
+          </ul>
+        </div>
+      </nav>
 
-        <style>{`
-                  .header {
-                      background: var(--white);
-                      position: sticky;
-                      top: 0;
-                      z-index: 1000;
-                      box-shadow: var(--shadow);
-                      transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-                  }
+      <style>{`
+                .header {
+                    background: var(--white);
+                    position: sticky;
+                    top: 0;
+                    z-index: 1000;
+                    box-shadow: var(--shadow);
+                    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+                }
 
-                  .header-hidden {
-                      transform: translateY(-100%);
-                  }
+                .header-hidden {
+                    transform: translateY(-100%);
+                }
 
-                  .top-bar {
-                      background: var(--primary);
-                      color: white;
-                      padding: 0.5rem 0;
-                      text-align: center;
-                      font-size: 0.8rem;
-                      font-weight: 500;
-                      letter-spacing: 0.5px;
-                  }
+                .top-bar {
+                    background: var(--primary);
+                    color: white;
+                    padding: 0.5rem 0;
+                    text-align: center;
+                    font-size: 0.8rem;
+                    font-weight: 500;
+                    letter-spacing: 0.5px;
+                }
 
-                  .main-header {
-                      padding: 1.5rem 0;
-                      border-bottom: 1px solid #f0f0f0;
-                  }
+                .main-header {
+                    padding: 1rem 0;
+                    border-bottom: 1px solid #f0f0f0;
+                }
 
-                  .nav-layout {
-                      display: grid;
-                      grid-template-columns: 200px 1fr auto;
-                      align-items: center;
-                      gap: 3rem;
-                  }
+                .nav-layout {
+                    display: grid;
+                    grid-template-columns: 1fr 200px 1fr;
+                    align-items: center;
+                    gap: 1rem;
+                }
 
-                  .site-logo {
-                      height: 60px;
-                      width: auto;
-                      object-fit: contain;
-                  }
+                .logo-section {
+                    display: flex;
+                    justify-content: center;
+                }
 
-                  .search-section {
-                      max-width: 600px;
-                      width: 100%;
-                  }
+                .site-logo {
+                    height: 60px;
+                    width: auto;
+                    object-fit: contain;
+                }
 
-                  .search-bar {
-                      display: flex;
-                      align-items: center;
-                      background: #f5f5f5;
-                      padding: 0.75rem 1.25rem;
-                      border-radius: 50px;
-                      border: 1px solid transparent;
-                      transition: var(--transition);
-                  }
+                .search-section {
+                    max-width: 400px;
+                }
 
-                  .search-bar:focus-within {
-                      background: white;
-                      border-color: var(--secondary);
-                  }
+                .search-bar {
+                    display: flex;
+                    align-items: center;
+                    background: #fff;
+                    padding: 0.6rem 1rem;
+                    border-radius: 50px;
+                    border: 1px solid #ddd;
+                    transition: var(--transition);
+                }
 
-                  .search-bar input {
-                      border: none;
-                      background: transparent;
-                      width: 100%;
-                      outline: none;
-                      font-size: 0.95rem;
-                      color: var(--text-main);
-                  }
+                .search-bar:focus-within {
+                    border-color: var(--primary);
+                    box-shadow: 0 0 0 3px rgba(139, 29, 29, 0.05);
+                }
 
-                  .search-icon {
-                      color: var(--text-muted);
-                  }
+                .search-bar input {
+                    border: none;
+                    background: transparent;
+                    width: 100%;
+                    outline: none;
+                    font-size: 0.9rem;
+                    color: var(--text-main);
+                }
 
-                  .actions-section {
-                      display: flex;
-                      gap: 1.5rem;
-                      align-items: center;
-                  }
+                .search-icon {
+                    color: var(--text-muted);
+                }
 
-                  .enquire-now-btn {
-                      background: #e91e63;
-                      color: white;
-                      padding: 0.6rem 1.2rem;
-                      border-radius: 50px;
-                      font-weight: 700;
-                      display: flex;
-                      align-items: center;
-                      gap: 0.5rem;
-                      font-size: 0.85rem;
-                      text-transform: uppercase;
-                      letter-spacing: 0.5px;
-                      transition: var(--transition);
-                  }
+                .actions-section {
+                    display: flex;
+                    gap: 1.5rem;
+                    align-items: center;
+                    justify-content: flex-end;
+                }
 
-                  .enquire-now-btn:hover {
-                      background: #d81b60;
-                      transform: translateY(-2px);
-                      box-shadow: 0 5px 15px rgba(233, 30, 99, 0.3);
-                  }
+                .action-item {
+                    display: flex;
+                    align-items: center;
+                    color: var(--text-main);
+                    cursor: pointer;
+                    transition: var(--transition);
+                }
 
-                  .action-item {
-                      display: flex;
-                      flex-direction: column;
-                      align-items: center;
-                      gap: 0.25rem;
-                      color: var(--text-main);
-                      cursor: pointer;
-                      transition: var(--transition);
-                  }
+                .action-item:hover {
+                    color: var(--primary);
+                }
 
-                  .action-item span {
-                      font-size: 0.75rem;
-                      font-weight: 600;
-                      text-transform: uppercase;
-                  }
+                .cart-btn {
+                    position: relative;
+                }
 
-                  .action-item:hover {
-                      color: var(--primary);
-                  }
+                .cart-count {
+                    position: absolute;
+                    top: -8px;
+                    right: -8px;
+                    background: var(--primary);
+                    color: white;
+                    font-size: 0.65rem;
+                    width: 16px;
+                    height: 16px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 50%;
+                    font-weight: 700;
+                }
 
-                  .cart-btn {
-                      position: relative;
-                  }
+                .nav-menu {
+                    background: var(--white);
+                    padding: 0.75rem 0;
+                    border-bottom: 1px solid #f0f0f0;
+                }
 
-                  .cart-count {
-                      position: absolute;
-                      top: -5px;
-                      right: 25px;
-                      background: var(--primary);
-                      color: white;
-                      font-size: 0.7rem;
-                      width: 18px;
-                      height: 18px;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                      border-radius: 50%;
-                      font-weight: 700;
-                  }
+                .nav-list {
+                    display: flex;
+                    list-style: none;
+                    justify-content: center;
+                    gap: 1.5rem;
+                }
 
-                  .nav-menu {
-                      background: var(--white);
-                      padding: 0.75rem 0;
-                  }
+                .nav-link {
+                    font-size: 0.8rem;
+                    font-weight: 600;
+                    text-transform: capitalize;
+                    letter-spacing: 0.2px;
+                    color: var(--text-main);
+                    display: flex;
+                    align-items: center;
+                    gap: 0.15rem;
+                }
 
-                  .nav-list {
-                      display: flex;
-                      list-style: none;
-                      justify-content: center;
-                      gap: 2.5rem;
-                  }
+                .nav-link.highlight {
+                    color: var(--primary);
+                }
 
-                  .nav-link {
-                      font-size: 0.85rem;
-                      font-weight: 600;
-                      text-transform: uppercase;
-                      letter-spacing: 0.5px;
-                      color: var(--text-main);
-                      display: flex;
-                      align-items: center;
-                      gap: 0.25rem;
-                  }
+                .nav-link:hover {
+                    color: var(--primary);
+                }
 
-                  .nav-link.highlight {
-                      color: var(--primary);
-                  }
-
-                  .nav-link:hover {
-                      color: var(--primary);
-                  }
-
-                  @media (max-width: 1024px) {
-                      .nav-layout {
-                          grid-template-columns: 1fr auto;
-                          gap: 1.5rem;
-                      }
-                      .search-section {
-                          display: none;
-                      }
-                      .nav-menu {
-                          display: none;
-                      }
-                  }
-              `}</style>
-      </header>
-
-      <EnquiryModal
-        isOpen={isEnquiryOpen}
-        onClose={() => setIsEnquiryOpen(false)}
-      />
-    </>
+                @media (max-width: 1024px) {
+                    .nav-layout {
+                        grid-template-columns: 1fr auto;
+                    }
+                    .search-section, .nav-menu {
+                        display: none;
+                    }
+                }
+            `}</style>
+    </header>
   );
 };
 
